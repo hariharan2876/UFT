@@ -1,0 +1,438 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE Report
+[
+<!ELEMENT Report (General ,(Doc|BPT)) >
+<!ATTLIST Report ver CDATA #REQUIRED tmZone CDATA #REQUIRED>
+
+<!ELEMENT General ( DocLocation ) >
+<!ATTLIST General productName CDATA #REQUIRED productVer CDATA #REQUIRED os CDATA #REQUIRED host CDATA #REQUIRED qcserver CDATA #IMPLIED qcproject CDATA #IMPLIED  >
+
+<!ELEMENT BPT (DName,Res,DVer?,TSet?,TInst?,NodeArgs,AdditionalInfo*,Doc*) >
+<!ATTLIST BPT rID ID #REQUIRED >
+
+<!ELEMENT Doc (DName,ConfName?,Res,DVer?,TSet?,TInst?,RunType?,DT?,AdditionalInfo*,Step*,DIter*,Step*,Action*,Doc*,Summary?,TestMaintenanceSummary*,NodeArgs?) >
+<!ATTLIST Doc rID ID #REQUIRED type (Test|BC|BPTWrapperTest|Flow|Group) "Test" productName CDATA #REQUIRED BCIter CDATA #IMPLIED >
+
+<!ELEMENT RunType ( #PCDATA )>
+<!ATTLIST RunType fmStep (False|True) "False" batch (False|True) "False" upDesc (False|True) "False" upChk (False|True) "False" upAS (False|True) "False">
+
+<!ELEMENT DName ( #PCDATA ) >
+
+<!ELEMENT ConfName ( #PCDATA ) >
+
+<!ELEMENT Res ( #PCDATA ) >
+
+<!ELEMENT AdditionalInfo (AdditionalDataName,AdditionalDataValue ) >
+
+<!ELEMENT AdditionalDataName ( #PCDATA ) >
+
+<!ELEMENT AdditionalDataValue ( #PCDATA ) >
+
+<!ELEMENT DVer ( #PCDATA ) >
+
+<!ELEMENT TSet ( #PCDATA ) >
+
+<!ELEMENT TInst ( #PCDATA ) >
+
+<!ELEMENT DIter (Step*,Action+,Summary?,NodeArgs)>
+<!ATTLIST DIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT DocLocation ( #PCDATA )>
+
+<!ELEMENT Action (AName,AIter*,(Step|HtmlStep|Action)*,Summary,ActionMaintenanceSummary*,NodeArgs ) >
+<!ATTLIST Action rID ID #REQUIRED>
+
+<!ELEMENT AIter ((Step|HtmlStep|Action)*,Summary?,NodeArgs) >
+<!ATTLIST AIter rID ID #REQUIRED iterID CDATA #REQUIRED>
+
+<!ELEMENT AName ( #PCDATA ) >
+
+<!ELEMENT TestMaintenanceSummary (ActionMaintenanceSummary*) >
+<!ATTLIST TestMaintenanceSummary ObjectsAdded CDATA #REQUIRED ObjectsUpdated CDATA #REQUIRED StepsUpdated CDATA #REQUIRED StepsComments CDATA #REQUIRED><!ELEMENT ActionMaintenanceSummary (ObjectChange* ) >
+<!ATTLIST ActionMaintenanceSummary Action CDATA #REQUIRED Objects CDATA #REQUIRED Updated CDATA #REQUIRED LinesTotal CDATA #REQUIRED Added CDATA #REQUIRED LinesUpdated CDATA #REQUIRED>
+
+<!ELEMENT ObjectChange  (Hierarchy, PropertyChangeList* ) >
+<!ATTLIST ObjectChange Operation CDATA #IMPLIED OriginalRepository CDATA #IMPLIED>
+
+<!ELEMENT PropertyChangeList (PropertyDef*) >
+
+<!ELEMENT PropertyDef (OriginalValue, NewValue) >
+<!ATTLIST PropertyDef PropName CDATA #REQUIRED OriginRegularExpression (True|False) "False" NewRegularExpression (True|False) "False" AddedProperty (True|False) "False" >
+
+<!ELEMENT OriginalValue ( #PCDATA )>
+
+<!ELEMENT NewValue ( #PCDATA )>
+
+<!ELEMENT Hierarchy  (ObjectName, Hierarchy*) >
+<!ATTLIST Hierarchy MicClass CDATA #REQUIRED>
+
+<!ELEMENT ObjectName  ( #PCDATA ) >
+
+<!ELEMENT Step (Obj,Details,Time,TimeTick* ,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST Step rID ID #REQUIRED retval CDATA #IMPLIED>
+
+<!ELEMENT HtmlStep (HTML,TimeTick*,(Step|HtmlStep|Doc)*,NodeArgs) >
+<!ATTLIST HtmlStep rID ID #REQUIRED >
+
+<!ELEMENT Obj ( #PCDATA ) >
+<!ATTLIST Obj plainTxt (False|True) "True">
+
+<!ELEMENT Details ( #PCDATA ) >
+<!ATTLIST Details plainTxt (False|True) "True">
+
+<!ELEMENT Time ( #PCDATA ) >
+
+<!ELEMENT HTML ( #PCDATA ) >
+
+<!ELEMENT Disp ( #PCDATA ) >
+
+<!ELEMENT TimeTick ( #PCDATA ) >
+
+<!ELEMENT NodeArgs (Disp,TopPane?,BtmPane?,ExtendedInfo? )>
+<!ATTLIST NodeArgs eType CDATA #REQUIRED icon CDATA #REQUIRED nRep CDATA #REQUIRED UserNote CDATA #IMPLIED filter (False|True) "True">
+<!ATTLIST NodeArgs status (Passed|Failed|Done|Warning|Information) "Done">
+<!ATTLIST NodeArgs iconSel CDATA #IMPLIED nType CDATA #IMPLIED MovieMarker CDATA "">
+<!ATTLIST NodeArgs Source CDATA #IMPLIED SourceLine CDATA #IMPLIED >
+
+<!ELEMENT TopPane (Path)>
+
+<!ELEMENT BtmPane ( (Path|WR)?,ASHilite?)>
+<!ATTLIST BtmPane vType CDATA "HTML">
+
+<!ELEMENT Path ( #PCDATA ) >
+
+<!ELEMENT ASHilite ( #PCDATA ) >
+
+<!ELEMENT WR ( #PCDATA ) >
+
+<!ELEMENT ExtendedInfo ( StepData ) >
+
+<!ATTLIST ExtendedInfo StepType CDATA #REQUIRED>
+<!ELEMENT DT (NodeArgs) >
+<!ATTLIST DT rID ID #REQUIRED>
+
+<!ELEMENT Summary (Param*)>
+<!ATTLIST Summary sTime CDATA #IMPLIED eTime CDATA #IMPLIED passed CDATA #IMPLIED failed CDATA #IMPLIED warnings CDATA #IMPLIED retval CDATA #IMPLIED stopped (False|True) "False" >
+
+<!ELEMENT Param (ParamName,ParamVal)+ >
+<!ATTLIST Param paramInOut (In|Out) "In">
+
+<!ELEMENT ParamName ( #PCDATA ) >
+
+<!ELEMENT ParamVal ( #PCDATA ) >
+
+]
+>
+<Report ver="2.0" tmZone="India Standard Time">
+<General productName="QuickTest Professional" productVer="11.00" os="Windows 7" host="HOME-PC"><DocLocation><![CDATA[C:\Users\Home\Documents\HP\QuickTest Professional\Tests\kporg]]></DocLocation></General>
+<Doc rID="T1"   productName= "QuickTest Professional"  >
+<DName><![CDATA[kporg]]></DName>
+<Res><![CDATA[Res11]]></Res>
+<DT rID="T2">
+<NodeArgs eType="Table" icon="2" nRep="4" filter="False" >
+<Disp><![CDATA[Run-Time Data Table]]></Disp>
+<BtmPane vType="Table">
+<Path><![CDATA[Default.xls]]></Path>
+</BtmPane>
+</NodeArgs>
+</DT>
+<DIter rID="T3" iterID="1" >
+<Action rID="T4">
+<AName><![CDATA[Action1]]></AName>
+<Step rID="T5">
+<Obj plainTxt="False" ><![CDATA[DUT]]></Obj>
+<Details plainTxt="False" ><![CDATA[Device]]></Details>
+<Time><![CDATA[6/11/2017 - 9:46:32]]></Time>
+<TimeTick>1497154592</TimeTick>
+<Step rID="T6">
+<Obj plainTxt="False" ><![CDATA[DUT.Open]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[6/11/2017 - 9:46:32]]></Time>
+<TimeTick>1497154592</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="10" Source="Action1" SourceLine="0" >
+<Disp><![CDATA[DUT.Open]]></Disp>
+</NodeArgs>
+</Step>
+<HtmlStep rID="T7">
+<HTML><![CDATA[<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+<base href=""/>
+<link rel="stylesheet" href="Results.css">
+</head>
+<body bgcolor="#ffffff" leftmargin="20" marginwidth="20" topmargin="10" marginheight="10" vlink="#9966cc">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr><td height="1" class="bg_midblue"></td></tr>
+	<tr><td height="30"><span class="hl1">  DUT.Applications.Start: </span><span class="DoneHigh">Done</span></td></tr>
+	<tr><td height="2" class="bg_darkblue"></td></tr>
+	<tr><td height="10"></td></tr>
+	<tr><td><span class="text"><b>Date and Time:</b> 6/11/2017 - 9:46:40</span></td></tr>
+		
+	<tr><td height="15"></td></tr>
+</table>
+<!--Until here code from report media-->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id=TABLE2><tr height="1"><td height="1" class="bg_gray_ccc"></td></tr><tr><td height="5"></td></tr></table><table>
+	<tr><td height="30"><span class="hl2"> Details</span></td></tr><tr><td height="5"></td></tr>
+</table>
+<span class="text"><b>Arguments:</b> name=KP</span></body></html>]]></HTML>
+<TimeTick>1497154600</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="12" Source="Action1" SourceLine="2" >
+<Disp><![CDATA[DUT.Applications.Start]]></Disp>
+</NodeArgs>
+</HtmlStep>
+<Step rID="T8">
+<Obj plainTxt="False" ><![CDATA[userid.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["testing"]]></Details>
+<Time><![CDATA[6/11/2017 - 9:46:53]]></Time>
+<TimeTick>1497154613</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="14" Source="Action1" SourceLine="4" >
+<Disp><![CDATA[userid.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T9">
+<Obj plainTxt="False" ><![CDATA[password.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["password7"]]></Details>
+<Time><![CDATA[6/11/2017 - 9:46:58]]></Time>
+<TimeTick>1497154618</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="16" Source="Action1" SourceLine="5" >
+<Disp><![CDATA[password.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T10">
+<Obj plainTxt="False" ><![CDATA[signon.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[6/11/2017 - 9:47:01]]></Time>
+<TimeTick>1497154621</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="18" Source="Action1" SourceLine="6" >
+<Disp><![CDATA[signon.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T11">
+<Obj plainTxt="False" ><![CDATA[DUT.PressKey]]></Obj>
+<Details plainTxt="False" ><![CDATA["HOME"]]></Details>
+<Time><![CDATA[6/11/2017 - 9:47:11]]></Time>
+<TimeTick>1497154631</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="20" Source="Action1" SourceLine="8" >
+<Disp><![CDATA[DUT.PressKey]]></Disp>
+</NodeArgs>
+</Step>
+<HtmlStep rID="T12">
+<HTML><![CDATA[<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+<base href=""/>
+<link rel="stylesheet" href="Results.css">
+</head>
+<body bgcolor="#ffffff" leftmargin="20" marginwidth="20" topmargin="10" marginheight="10" vlink="#9966cc">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr><td height="1" class="bg_midblue"></td></tr>
+	<tr><td height="30"><span class="hl1">  DUT.Applications.Close: </span><span class="DoneHigh">Done</span></td></tr>
+	<tr><td height="2" class="bg_darkblue"></td></tr>
+	<tr><td height="10"></td></tr>
+	<tr><td><span class="text"><b>Date and Time:</b> 6/11/2017 - 9:47:15</span></td></tr>
+		
+	<tr><td height="15"></td></tr>
+</table>
+<!--Until here code from report media-->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id=TABLE2><tr height="1"><td height="1" class="bg_gray_ccc"></td></tr><tr><td height="5"></td></tr></table><table>
+	<tr><td height="30"><span class="hl2"> Details</span></td></tr><tr><td height="5"></td></tr>
+</table>
+<span class="text"><b>Arguments:</b> name=KP</span></body></html>]]></HTML>
+<TimeTick>1497154635</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="22" Source="Action1" SourceLine="10" >
+<Disp><![CDATA[DUT.Applications.Close]]></Disp>
+</NodeArgs>
+</HtmlStep>
+<Step rID="T13">
+<Obj plainTxt="False" ><![CDATA[DUT.Close]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[6/11/2017 - 9:47:29]]></Time>
+<TimeTick>1497154649</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="24" Source="Action1" SourceLine="12" >
+<Disp><![CDATA[DUT.Close]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="5" nRep="9" Source="Action1" SourceLine="0" >
+<Disp><![CDATA[DUT]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="6/11/2017 - 9:46:28" eTime="6/11/2017 - 9:47:29" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="7" >
+<Disp><![CDATA[Action1 Summary]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="3" nRep="6" >
+<Disp><![CDATA[kporg Iteration 1 (Row 1)]]></Disp>
+</NodeArgs>
+</DIter>
+<DIter rID="T14" iterID="2" >
+<Action rID="T15">
+<AName><![CDATA[Action1]]></AName>
+<Step rID="T16">
+<Obj plainTxt="False" ><![CDATA[DUT]]></Obj>
+<Details plainTxt="False" ><![CDATA[Device]]></Details>
+<Time><![CDATA[6/11/2017 - 9:47:44]]></Time>
+<TimeTick>1497154664</TimeTick>
+<Step rID="T17">
+<Obj plainTxt="False" ><![CDATA[DUT.Open]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[6/11/2017 - 9:47:44]]></Time>
+<TimeTick>1497154664</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="31" Source="Action1" SourceLine="0" >
+<Disp><![CDATA[DUT.Open]]></Disp>
+</NodeArgs>
+</Step>
+<HtmlStep rID="T18">
+<HTML><![CDATA[<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+<base href=""/>
+<link rel="stylesheet" href="Results.css">
+</head>
+<body bgcolor="#ffffff" leftmargin="20" marginwidth="20" topmargin="10" marginheight="10" vlink="#9966cc">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr><td height="1" class="bg_midblue"></td></tr>
+	<tr><td height="30"><span class="hl1">  DUT.Applications.Start: </span><span class="DoneHigh">Done</span></td></tr>
+	<tr><td height="2" class="bg_darkblue"></td></tr>
+	<tr><td height="10"></td></tr>
+	<tr><td><span class="text"><b>Date and Time:</b> 6/11/2017 - 9:47:51</span></td></tr>
+		
+	<tr><td height="15"></td></tr>
+</table>
+<!--Until here code from report media-->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id=TABLE2><tr height="1"><td height="1" class="bg_gray_ccc"></td></tr><tr><td height="5"></td></tr></table><table>
+	<tr><td height="30"><span class="hl2"> Details</span></td></tr><tr><td height="5"></td></tr>
+</table>
+<span class="text"><b>Arguments:</b> name=KP</span></body></html>]]></HTML>
+<TimeTick>1497154671</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="33" Source="Action1" SourceLine="2" >
+<Disp><![CDATA[DUT.Applications.Start]]></Disp>
+</NodeArgs>
+</HtmlStep>
+<Step rID="T19">
+<Obj plainTxt="False" ><![CDATA[userid.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["testing"]]></Details>
+<Time><![CDATA[6/11/2017 - 9:48:00]]></Time>
+<TimeTick>1497154680</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="35" Source="Action1" SourceLine="4" >
+<Disp><![CDATA[userid.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T20">
+<Obj plainTxt="False" ><![CDATA[password.Set]]></Obj>
+<Details plainTxt="False" ><![CDATA["password7"]]></Details>
+<Time><![CDATA[6/11/2017 - 9:48:03]]></Time>
+<TimeTick>1497154683</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="37" Source="Action1" SourceLine="5" >
+<Disp><![CDATA[password.Set]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T21">
+<Obj plainTxt="False" ><![CDATA[signon.Click]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[6/11/2017 - 9:48:04]]></Time>
+<TimeTick>1497154684</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="39" Source="Action1" SourceLine="6" >
+<Disp><![CDATA[signon.Click]]></Disp>
+</NodeArgs>
+</Step>
+<Step rID="T22">
+<Obj plainTxt="False" ><![CDATA[DUT.PressKey]]></Obj>
+<Details plainTxt="False" ><![CDATA["HOME"]]></Details>
+<Time><![CDATA[6/11/2017 - 9:48:13]]></Time>
+<TimeTick>1497154693</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="41" Source="Action1" SourceLine="8" >
+<Disp><![CDATA[DUT.PressKey]]></Disp>
+</NodeArgs>
+</Step>
+<HtmlStep rID="T23">
+<HTML><![CDATA[<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+<base href=""/>
+<link rel="stylesheet" href="Results.css">
+</head>
+<body bgcolor="#ffffff" leftmargin="20" marginwidth="20" topmargin="10" marginheight="10" vlink="#9966cc">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr><td height="1" class="bg_midblue"></td></tr>
+	<tr><td height="30"><span class="hl1">  DUT.Applications.Close: </span><span class="DoneHigh">Done</span></td></tr>
+	<tr><td height="2" class="bg_darkblue"></td></tr>
+	<tr><td height="10"></td></tr>
+	<tr><td><span class="text"><b>Date and Time:</b> 6/11/2017 - 9:48:19</span></td></tr>
+		
+	<tr><td height="15"></td></tr>
+</table>
+<!--Until here code from report media-->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id=TABLE2><tr height="1"><td height="1" class="bg_gray_ccc"></td></tr><tr><td height="5"></td></tr></table><table>
+	<tr><td height="30"><span class="hl2"> Details</span></td></tr><tr><td height="5"></td></tr>
+</table>
+<span class="text"><b>Arguments:</b> name=KP</span></body></html>]]></HTML>
+<TimeTick>1497154699</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="43" Source="Action1" SourceLine="10" >
+<Disp><![CDATA[DUT.Applications.Close]]></Disp>
+</NodeArgs>
+</HtmlStep>
+<Step rID="T24">
+<Obj plainTxt="False" ><![CDATA[DUT.Close]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[6/11/2017 - 9:48:40]]></Time>
+<TimeTick>1497154720</TimeTick>
+<NodeArgs eType="Replay" icon="5" nRep="45" Source="Action1" SourceLine="12" >
+<Disp><![CDATA[DUT.Close]]></Disp>
+</NodeArgs>
+</Step>
+<NodeArgs eType="Context" icon="5" nRep="30" Source="Action1" SourceLine="0" >
+<Disp><![CDATA[DUT]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="6/11/2017 - 9:47:29" eTime="6/11/2017 - 9:48:40" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartAction" icon="4" nRep="28" >
+<Disp><![CDATA[Action1 Summary]]></Disp>
+</NodeArgs>
+</Action>
+<NodeArgs eType="StartIteration" icon="3" nRep="27" >
+<Disp><![CDATA[kporg Iteration 2 (Row 2)]]></Disp>
+</NodeArgs>
+</DIter>
+<Step rID="T25">
+<Obj ><![CDATA[Test summary]]></Obj>
+<Details plainTxt="False" ><![CDATA[]]></Details>
+<Time><![CDATA[6/11/2017 - 9:48:41]]></Time>
+<TimeTick>1497154721</TimeTick>
+<HtmlStep rID="T26">
+<HTML><![CDATA[<html>
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+<base href=""/>
+<link rel="stylesheet" href="Results.css">
+</head>
+<body bgcolor="#ffffff" leftmargin="20" marginwidth="20" topmargin="10" marginheight="10" vlink="#9966cc">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr><td height="1" class="bg_midblue"></td></tr>
+	<tr><td height="30"><span class="hl1">  Device summary: </span><span class="InformationHigh">Information</span></td></tr>
+	<tr><td height="2" class="bg_darkblue"></td></tr>
+	<tr><td height="10"></td></tr>
+	<tr><td><span class="text"><b>Date and Time:</b> 6/11/2017 - 9:48:41</span></td></tr>
+		
+	<tr><td height="15"></td></tr>
+</table>
+<!--Until here code from report media-->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id=TABLE2><tr height="1"><td height="1" class="bg_gray_ccc"></td></tr><tr><td height="5"></td></tr></table><table>
+	<tr><td height="30"><span class="hl2"> Details</span></td></tr><tr><td height="5"></td></tr>
+</table>
+<span class="text"><html><body><div style="background-color: #0086bf;width: 130px;height: 30px;text-align: center;"><a style="font-family: OpenSans;color: #ffffff;font-size: 13px;font-weight: 700;line-height: 42px;" href="https://partners.reporting.perfectomobile.com?externalId[0]=hsubbuvenkat@csc.com_QTP_17-06-11_04_16_26_18838&_timestamp[0]=1497154721207" target="_blank">VIEW REPORTS</a></div><br><table border="1" cellpadding="3"><tr><th>Device</th><th>Video</th><th>Network</th><th>Vitals</th><th>Logs</th><th>Device Id</th><th>Phone Number</th><th>Resolution</th><th>OS</th><th>OS Version</th><th>Firmware</th><th>Location</th><th>Network</th><th>Distributer</th><th>Language</th><th>Imsi</th><th>Description</th></tr><tr><td nowrap align="center">Samsung Galaxy S5</td><td nowrap align="center"><a href="https://partners.perfectomobile.com/nexperience/videoPlayer.jsp?liveUri=rtmps://partners.vod-stream-01.perfectomobile.com/vods3&file=flv:pm/perfecto-vod-01/partners/7a46796656674337573738557678522f76616a5278696449746470355579686b4834654d596c78544f47453d/cea46787d006ef470e72e09cd1c2d46e3306d3183d22efd07cf94d282024e5d3.flv&manufacturer=Samsung&model=Galaxy S5&videoWidth=1080&videoHeight=1920">Video</a><br></td><td nowrap align="center">--</td><td nowrap align="center">--</td><td nowrap align="center">--</td><td nowrap align="center">3219D3B1</td><td nowrap align="center">--</td><td nowrap align="center">1080x1920</td><td nowrap align="center">Android</td><td nowrap align="center">6.0.1</td><td nowrap align="center">kltevzw-user 6.0.1 MMB29M G900VVRU2DPJ2 release-keys</td><td nowrap align="center">NA-US-BOS</td><td nowrap align="center">Verizon-United States of America</td><td nowrap align="center">Unlocked</td><td nowrap align="center">English</td><td nowrap align="center">--</td><td nowrap align="center">Subcontractors Chris Uzi</td></tr><tr><td nowrap align="center">Apple iPhone-6</td><td nowrap align="center"><a href="https://partners.perfectomobile.com/nexperience/videoPlayer.jsp?liveUri=rtmps://partners.vod-stream-01.perfectomobile.com/vods3&file=flv:pm/perfecto-vod-01/partners/7a46796656674337573738557678522f76616a5278696449746470355579686b4834654d596c78544f47453d/b7bd120908625e4dc5a2296f6aedef317f02e987c4be961d7d90bc9c9ae1343a.flv&manufacturer=Apple&model=iPhone-6&videoWidth=750&videoHeight=1334">Video</a><br></td><td nowrap align="center">--</td><td nowrap align="center">--</td><td nowrap align="center">--</td><td nowrap align="center">076164908B998B9944CE5E3A50E1028D5708AAEF</td><td nowrap align="center">--</td><td nowrap align="center">750x1334</td><td nowrap align="center">iOS</td><td nowrap align="center">10.3.2</td><td nowrap align="center">10.3.2</td><td nowrap align="center">NA-US-BOS</td><td nowrap align="center">Verizon-United States of America</td><td nowrap align="center">IOS9</td><td nowrap align="center">English</td><td nowrap align="center">--</td><td nowrap align="center">WiFi Device</td></tr></table></body></html></span></body></html>]]></HTML>
+<TimeTick>1497154721</TimeTick>
+<NodeArgs eType="User" icon="6" nRep="49" status="Information" Source="Action0" SourceLine="0" >
+<Disp><![CDATA[Device summary]]></Disp>
+</NodeArgs>
+</HtmlStep>
+<NodeArgs eType="User" icon="6" nRep="48" status="Information" Source="Action0" SourceLine="0" >
+<Disp><![CDATA[Test summary]]></Disp>
+</NodeArgs>
+</Step>
+<Summary sTime="6/11/2017 - 9:46:26" eTime="6/11/2017 - 9:48:41" passed="0" failed="0" warnings="0" ></Summary>
+<NodeArgs eType="StartTest" icon="1" nRep="3" >
+<Disp><![CDATA[Test kporg Summary]]></Disp>
+</NodeArgs>
+</Doc>
+</Report>
