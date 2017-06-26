@@ -1,0 +1,47 @@
+.hl1
+{
+    COLOR: #669;
+    FONT-FAMILY: Mic Shell Dlg;
+    FONT-SIZE: 16pt;
+    FONT-WEIGHT: bold
+}
+.bg_darkblue
+{
+    BACKGROUND-COLOR: #669
+}
+.bg_midblue
+{
+    BACKGROUND-COLOR: #99c
+}
+.bg_gray_eee
+{
+    BACKGROUND-COLOR: #eee
+}
+.text
+{
+    FONT-FAMILY: Mic Shell Dlg;
+    FONT-SIZE: 10pt
+}
+.tablehl
+{
+    BACKGROUND-COLOR: #eee;
+    COLOR: #669;
+    FONT-FAMILY: Mic Shell Dlg;
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold;
+    LINE-HEIGHT: 14pt
+}
+.Failed
+{
+    COLOR: #f03;
+    FONT-FAMILY: Mic Shell Dlg;
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold
+}
+.Passed
+{
+    COLOR: #096;
+    FONT-FAMILY: Mic Shell Dlg;
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold
+}
